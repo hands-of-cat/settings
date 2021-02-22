@@ -73,27 +73,29 @@ sleep 2s
  python3 -m pip install --user pipx<BR>
  sudo apt install -y ufw<BR>
  
-9 ufw の設定
- /etc/sysctl.conf<BR>
- \# sudo ufw enable<BR>
- #ufw default deny outgoing<BR>
+9 ufw の設定<BR>
+vi /etc/sysctl.conf<BR>
+ net.ipv4.ip_forward=1<BR>
+
+ sudo ufw enable<BR>
+ sudo ufw default deny outgoing<BR>
  sudo ufw allow in 1194<BR>
  sudo ufw allow out 1194<BR>
  sudo ufw allow in on tun0<BR>
- sudo ufw allow out on tun0
+ sudo ufw allow out on tun0<BR>
 
  /etc/default/ufw<BR>
  vim /etc/default/ufw<BR>
  
- /etc/ufw/before.rules<BR>
-\# STARTOPEN VPN RULE<BR>
-\# NAT table rules<BR>
-*nat<BR>
-\:POSTROUTING ACCEPT [0:0]<BR>
-\# Allow traffic from OpenVPN client to eth0<BR>
--A POSTROUTING -s 10.8.0.0/8 -o eth0 -j MASQUERADE<BR>
-COMMIT<BR>
-\# END OPNVPN RULES<BR>
+ vim /etc/ufw/before.rules<BR>
+ \# STARTOPEN VPN RULE<BR>
+ \# NAT table rules<BR>
+ *nat<BR>
+ \:POSTROUTING ACCEPT [0:0]<BR>
+ \# Allow traffic from OpenVPN client to eth0<BR>
+ -A POSTROUTING -s 10.8.0.0/8 -o eth0 -j MASQUERADE<BR>
+ COMMIT<BR>
+ \# END OPNVPN RULES<BR>
 
 
 
