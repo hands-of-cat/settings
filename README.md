@@ -79,6 +79,8 @@ sleep 2s
  #ufw default deny outgoing<BR>
  sudo ufw allow in 1194<BR>
  sudo ufw allow out 1194<BR>
+ sudo ufw allow in on tun0<BR>
+ sudo ufw allow out on tun0
 
  /etc/default/ufw<BR>
  vim /etc/default/ufw<BR>
