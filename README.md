@@ -72,6 +72,7 @@ sleep 2s
  sudo apt install python3-venv<BR>
  python3 -m pip install --user pipx<BR>
  sudo apt install -y ufw<BR>
+ gem install evil-winrm<BR>
  
 9 ufw の設定<BR>
 vi /etc/sysctl.conf<BR>
