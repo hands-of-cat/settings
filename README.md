@@ -73,6 +73,8 @@ sleep 2s
  python3 -m pip install --user pipx<BR>
  sudo apt install -y ufw<BR>
  gem install evil-winrm<BR>
+ apt install python-crypto<BR>
+ git clone https://github.com/Neohapsis/creddump7.git<BR>
  
 9 ufw の設定<BR>
 vi /etc/sysctl.conf<BR>
