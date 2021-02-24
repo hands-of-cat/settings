@@ -75,7 +75,8 @@ sleep 2s
  gem install evil-winrm<BR>
 #（インストールできなかった） apt install python-crypto<BR>
 #（上のライブラリが入らないとどうしようもない） git clone https://github.com/Neohapsis/creddump7.git<BR>
- 
+⇒代わりに「secretdump.py」を利用<BR>
+
 9 ufw の設定<BR>
 vi /etc/sysctl.conf<BR>
  net.ipv4.ip_forward=1<BR>
