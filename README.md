@@ -24,9 +24,9 @@
 
 5 Kali Linux のパッケージ更新とツールのインストール
  パッケージ最新化
-xxx - sudo apt update && sudo apt full-upgrade -y
-xxx VMTool のインストール
-xxx - sudo apt install -y --reinstall open-vm-tools-desktop fuse
+xxx - sudo apt update && sudo apt full-upgrade -y<BR>
+xxx VMTool のインストール<BR>
+xxx - sudo apt install -y --reinstall open-vm-tools-desktop fuse<BR>
 sudo apt update<BR>
 sudo apt upgrade<BR>
 
