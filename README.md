@@ -24,9 +24,11 @@
 
 5 Kali Linux のパッケージ更新とツールのインストール
  パッケージ最新化
- - sudo apt update && sudo apt full-upgrade -y
- VMTool のインストール
- - sudo apt install -y --reinstall open-vm-tools-desktop fuse
+xxx - sudo apt update && sudo apt full-upgrade -y
+xxx VMTool のインストール
+xxx - sudo apt install -y --reinstall open-vm-tools-desktop fuse
+sudo apt update<BR>
+sudo apt upgrade<BR>
 
 6 共有フォルダの設定
  -Kali Linux 上 /mnt/hgfs/OffsecVM
